@@ -1,0 +1,43 @@
+{
+  "name": "noch-portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "gen:hash": "node scripts/generate-password-hash.js",
+    "gen:secret": "node scripts/generate-jwt-secret.js",
+    "init:sheets": "node scripts/init-sheets.js",
+    "init:drive": "node scripts/init-drive.js",
+    "setup": "node scripts/init-sheets.js && node scripts/init-drive.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^18.0.4",
+    "formidable": "^3.5.2",
+    "googleapis": "^140.0.1",
+    "jose": "^5.9.6",
+    "next": "^15.5.26",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "slugify": "^1.6.6",
+    "uuid": "^10.0.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.9",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/formidable": "^3.4.5",
+    "@types/node": "^20.17.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/uuid": "^10.0.0",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^15.5.26",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.14",
+    "typescript": "^5.6.3"
+  }
+}

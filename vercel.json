@@ -1,0 +1,14 @@
+{
+    "framework": "nextjs",
+    "buildCommand": "npm run build",
+    "devCommand": "npm run dev",
+    "installCommand": "npm install",
+    "regions": [
+        "sin1"
+    ],
+    "functions": {
+        "pages/api/**/*.ts": {
+            "maxDuration": 30
+        }
+    }
+}

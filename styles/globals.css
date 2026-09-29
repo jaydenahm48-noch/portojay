@@ -1,0 +1,26 @@
+/*
+ * globals.css
+ * Hanya untuk halaman /admin — public frontend menggunakan public/css/style.css
+ * Tailwind diinjeksikan di sini untuk admin UI.
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Admin global styles ─────────────────────────────────────────────────── */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Utility: truncate teks panjang */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
