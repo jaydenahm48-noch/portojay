@@ -34,7 +34,7 @@ export default function Home() {
             <Head>
                 <meta charSet="UTF-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                <title>Jayden Noch — Portfolio</title>
+                <title>Zaidan — Portfolio</title>
 
                 {/* CSS existing — tidak diubah */}
                 <link rel="stylesheet" href="/css/style.css" />
@@ -89,7 +89,7 @@ export default function Home() {
                         <div className="container">
                             <div className="row">
                                 <div className="home-info padd-15">
-                                    <h3 className="hello">Hello, my name is <span>Jayden Noch</span></h3>
+                                    <h3 className="hello">Hello, my name is <span>Zaidan</span></h3>
                                     <h3 className="my-profession">
                                         I'm a <TypingText />
                                     </h3>
@@ -140,7 +140,7 @@ export default function Home() {
                                 <div className="about-content padd-15">
                                     <div className="row">
                                         <div className="about-text padd-15">
-                                            <h3>I&apos;m Jayden Noch and <span>Programmer</span></h3>
+                                            <h3>I&apos;m Zaidan and <span>Programmer</span></h3>
                                             <p style={{ textAlign: 'justify' }}>
                                                 I&apos;m a fresh graduate with a Bachelor&apos;s Degree in Informatics from Universitas
                                                 Ahmad Dahlan. I am passionate about programming, web development, and creating
