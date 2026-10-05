@@ -172,7 +172,7 @@ export default function Home() {
                                                                 <tr>
                                                                     <td style={{ fontWeight: 'bold', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>Website</td>
                                                                     <td style={{ textAlign: 'center', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>:</td>
-                                                                    <td style={{ padding: '6px 0', verticalAlign: 'top', wordBreak: 'break-all', color: 'var(--text-black-700)' }}>www.noch.com</td>
+                                                                    <td style={{ padding: '6px 0', verticalAlign: 'top', wordBreak: 'break-all', color: 'var(--text-black-700)' }}>portojay.vercel.app</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td style={{ fontWeight: 'bold', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>Phone</td>
@@ -231,7 +231,7 @@ export default function Home() {
                                         <div className="skills padd-15">
                                             <div className="row">
                                                 <div className="skill-item padd-15">
-                                                    <h5>CSS</h5>
+                                                    <h5>HTML, CSS</h5>
                                                     <div className="progress">
                                                         <div className="progress-in" style={{ width: '70%' }}></div>
                                                         <div className="skill-percent">70%</div>
@@ -247,12 +247,33 @@ export default function Home() {
                                                 <div className="skill-item padd-15">
                                                     <h5>C++</h5>
                                                     <div className="progress">
-                                                        <div className="progress-in" style={{ width: '75%' }}></div>
-                                                        <div className="skill-percent">75%</div>
+                                                        <div className="progress-in" style={{ width: '65%' }}></div>
+                                                        <div className="skill-percent">65%</div>
                                                     </div>
                                                 </div>
                                                 <div className="skill-item padd-15">
-                                                    <h5>PY</h5>
+                                                    <h5>Laravel</h5>
+                                                    <div className="progress">
+                                                        <div className="progress-in" style={{ width: '70%' }}></div>
+                                                        <div className="skill-percent">70%</div>
+                                                    </div>
+                                                </div>
+                                                <div className="skill-item padd-15">
+                                                    <h5>PHP</h5>
+                                                    <div className="progress">
+                                                        <div className="progress-in" style={{ width: '70%' }}></div>
+                                                        <div className="skill-percent">70%</div>
+                                                    </div>
+                                                </div>
+                                                <div className="skill-item padd-15">
+                                                    <h5>MySQL</h5>
+                                                    <div className="progress">
+                                                        <div className="progress-in" style={{ width: '70%' }}></div>
+                                                        <div className="skill-percent">70%</div>
+                                                    </div>
+                                                </div>
+                                                <div className="skill-item padd-15">
+                                                    <h5>API</h5>
                                                     <div className="progress">
                                                         <div className="progress-in" style={{ width: '70%' }}></div>
                                                         <div className="skill-percent">70%</div>
