@@ -22,7 +22,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         }
 
         const published = all
-            .filter((c) => c.published === 'true')
+            .filter((c) => c.published !== 'false')  // tampilkan semua kecuali yang eksplisit draft
             .sort((a, b) => Number(a.sort_order) - Number(b.sort_order));
 
         const data = published.map((c) => ({

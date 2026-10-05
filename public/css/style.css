@@ -1077,6 +1077,12 @@ body::-webkit-scrollbar {
     color: var(--text-black-700);
 }
 
+/* Heading "My Certificates :" — warna sama dengan portfolio heading */
+.certificate .portfolio-heading h2 {
+    color: var(--text-black-900);
+    font-weight: 500;
+}
+
 /* ── Certificate Detail Modal ────────────────────────────────── */
 
 #certificateDetailOverlay {

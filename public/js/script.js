@@ -219,26 +219,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /*--Dynamic Certificates Loader--*/
 async function loadCertificates() {
-    const row = document.getElementById('certificatesRow');
+    var row = document.getElementById('certificatesRow');
     if (!row) return;
 
     try {
-        const res = await fetch('/api/certificates');
-        const data = await res.json();
+        var res = await fetch('/api/certificates');
+        var data = await res.json();
 
-        if (!res.ok || !data.success || !data.data || data.data.length === 0) {
+        var items = (data && data.success && Array.isArray(data.data)) ? data.data : [];
+
+        if (items.length === 0) {
             row.innerHTML = '<div class="certificate-empty">Belum ada sertifikat.</div>';
             return;
         }
 
-        row.innerHTML = data.data.map(function (c) {
+        row.innerHTML = items.map(function (c) {
             var imgHtml = c.image
-                ? '<div class="certificate-img"><img src="' + c.image + '" alt="' + c.title + '" onerror="this.parentElement.style.display=\'none\'"></div>'
+                ? '<div class="certificate-img"><img src="' + c.image + '" alt="' + (c.title || '') + '" loading="lazy" onerror="this.parentElement.style.display=\'none\'"></div>'
                 : '<div class="certificate-img certificate-img--placeholder"><i class="fa fa-certificate"></i></div>';
-
-            var verifyBtn = c.credential_url
-                ? '<a href="' + c.credential_url + '" target="_blank" rel="noopener" class="certificate-verify-btn"><i class="fa fa-external-link-alt"></i> Lihat Sertifikat</a>'
-                : '';
 
             return '<div class="certificate-item padd-15">'
                 + '<div class="certificate-item-inner shadow-dark" onclick="openCertificateDetail(\'' + encodeURIComponent(JSON.stringify(c)) + '\')">'
@@ -253,7 +251,8 @@ async function loadCertificates() {
         }).join('');
 
     } catch (err) {
-        row.innerHTML = '<div class="certificate-empty">Gagal memuat sertifikat.</div>';
+        var row2 = document.getElementById('certificatesRow');
+        if (row2) row2.innerHTML = '<div class="certificate-empty">Gagal memuat sertifikat.</div>';
         console.warn('Certificates API error:', err);
     }
 }
