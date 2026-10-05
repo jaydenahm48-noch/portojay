@@ -1,7 +1,7 @@
 /**
  * GET /api/certificates
  * Mengembalikan daftar sertifikat yang published, diurutkan by sort_order.
- * Digunakan oleh public frontend section Certificates.
+ * Jika sheet Certificates belum ada, return array kosong (bukan error).
  */
 
 import type { NextApiRequest, NextApiResponse } from 'next';
@@ -15,6 +15,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     try {
         const all = await getCertificates();
+
+        // Sheet baru / kosong — return empty array, bukan error
+        if (!all || all.length === 0) {
+            return res.status(200).json({ success: true, data: [] });
+        }
+
         const published = all
             .filter((c) => c.published === 'true')
             .sort((a, b) => Number(a.sort_order) - Number(b.sort_order));
@@ -32,6 +38,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         return res.status(200).json({ success: true, data });
     } catch (error) {
         console.error('[/api/certificates] Error:', error);
-        return res.status(500).json({ success: false, error: 'Gagal memuat sertifikat' });
+        // Return empty array agar frontend tidak crash, bukan 500
+        return res.status(200).json({ success: true, data: [] });
     }
 }

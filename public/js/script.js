@@ -298,9 +298,4 @@ function openCertificateDetail(encoded) {
     document.body.style.overflow = 'hidden';
 }
 
-function closeCertificateDetail() {
-    var overlay = document.getElementById('certificateDetailOverlay');
-    if (overlay) overlay.style.display = 'none';
-    document.body.style.overflow = '';
-}
-
+// closeCertificateDetail didefinisikan di inline script (index.tsx) agar tersedia lebih awal

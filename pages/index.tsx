@@ -736,6 +736,12 @@ export default function Home() {
         });
 
         // ── Certificate Detail close handler ────────────────────────────────
+        // Definisi fungsi di sini (bukan di script.js) agar tersedia saat addEventListener dipanggil
+        function closeCertificateDetail() {
+          var overlay = document.getElementById('certificateDetailOverlay');
+          if (overlay) overlay.style.display = 'none';
+          document.body.style.overflow = '';
+        }
         document.getElementById('cdCloseBtn').addEventListener('click', closeCertificateDetail);
         document.getElementById('certificateDetailOverlay').addEventListener('click', function(e) {
           if (e.target === this) closeCertificateDetail();

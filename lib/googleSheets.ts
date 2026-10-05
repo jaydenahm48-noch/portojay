@@ -55,10 +55,22 @@ export const SHEETS = {
  */
 export async function getSheetRows(sheetName: string): Promise<unknown[]> {
     const sheets = getSheetsClient();
-    const response = await sheets.spreadsheets.values.get({
-        spreadsheetId: SPREADSHEET_ID,
-        range: sheetName,
-    });
+
+    let response;
+    try {
+        response = await sheets.spreadsheets.values.get({
+            spreadsheetId: SPREADSHEET_ID,
+            range: sheetName,
+        });
+    } catch (err: unknown) {
+        // Jika sheet belum ada (range invalid), auto-buat sheet + header lalu return []
+        const msg = err instanceof Error ? err.message : String(err);
+        if (msg.includes('Unable to parse range') || msg.includes('exceeds grid limits')) {
+            await ensureSheetExists(sheetName);
+            return [];
+        }
+        throw err;
+    }
 
     const rows = response.data.values ?? [];
     if (rows.length < 2) return [];
@@ -71,6 +83,25 @@ export async function getSheetRows(sheetName: string): Promise<unknown[]> {
         });
         return obj;
     });
+}
+
+/**
+ * Pastikan sheet dengan nama tertentu ada di spreadsheet.
+ * Jika belum ada, buat sheet baru. Header TIDAK ditulis otomatis —
+ * gunakan init-sheets.js untuk setup header lengkap.
+ */
+async function ensureSheetExists(sheetName: string): Promise<void> {
+    const sheets = getSheetsClient();
+    const meta = await sheets.spreadsheets.get({ spreadsheetId: SPREADSHEET_ID });
+    const exists = meta.data.sheets?.some(s => s.properties?.title === sheetName);
+    if (!exists) {
+        await sheets.spreadsheets.batchUpdate({
+            spreadsheetId: SPREADSHEET_ID,
+            requestBody: {
+                requests: [{ addSheet: { properties: { title: sheetName } } }],
+            },
+        });
+    }
 }
 
 /**
