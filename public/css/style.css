@@ -68,6 +68,23 @@ ul {
     transition: all 0.3s ease;
 }
 
+/* Overlay putih semi-transparent di light mode agar teks tetap terbaca */
+body.dark .section::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.72);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Pastikan konten di atas overlay */
+body.dark .section .container,
+body.dark .section > * {
+    position: relative;
+    z-index: 1;
+}
+
 .section.back-section {
     z-index: 1;
 }
