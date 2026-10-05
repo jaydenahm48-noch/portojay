@@ -402,7 +402,7 @@ export default function Home() {
                             </div>
                             <div className="row">
                                 <div className="portfolio-heading padd-15">
-                                    <h2 style={{ color: 'var(--text-black-900)' }}>My Certificates :</h2>
+                                    <h2 style={{ color: 'var(--text-black-900)' }}>My Certificates :</h2><br></br><br></br>
                                 </div>
                             </div>
                             {/* Certificate items di-render oleh loadCertificates() di script.js */}
@@ -651,9 +651,16 @@ export default function Home() {
               return;
             }
             row.innerHTML = items.map(item => {
-              const tech = item.technologies ? '<p style="font-size:11px;color:var(--text-black-700);margin:4px 10px 8px;line-height:1.4;">' + item.technologies + '</p>' : '';
+              const tech = item.technologies ? '<p>' + item.technologies + '</p>' : '';
               const dataAttr = encodeURIComponent(JSON.stringify(item));
-              return '<div class="portfolio-item padd-15"><div class="portfolio-item-inner shadow-dark" style="cursor:pointer;" onclick="openPortfolioDetail(\\'' + dataAttr + '\\')"><div class="portfolio-img"><img src="' + item.thumbnail + '" alt="' + item.title + '" onerror="this.src=\\'/images/port.jpg\\'" style="transition:transform 0.3s ease;"></div>' + (item.title ? '<h4 style="padding:10px 10px 4px;font-size:14px;color:var(--text-black-900);font-weight:600;">' + item.title + '</h4>' : '') + tech + '</div></div>';
+              return '<div class="portfolio-item padd-15">'
+                + '<div class="portfolio-item-inner shadow-dark" style="cursor:pointer;" onclick="openPortfolioDetail(\\'' + dataAttr + '\\')">'
+                + '<div class="portfolio-img"><img src="' + item.thumbnail + '" alt="' + item.title + '" onerror="this.src=\\'/images/port.jpg\\'" style="transition:transform 0.3s ease;"></div>'
+                + '<div class="portfolio-info">'
+                + (item.title ? '<h4>' + item.title + '</h4>' : '')
+                + tech
+                + '</div>'
+                + '</div></div>';
             }).join('');
           } catch(err) {
             row.innerHTML = '<div class="portfolio-item padd-15" style="flex:0 0 100%;max-width:100%;text-align:center;padding:40px 0;color:var(--text-black-700);">Gagal memuat portfolio.</div>';
