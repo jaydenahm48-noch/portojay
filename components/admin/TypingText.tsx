@@ -5,7 +5,7 @@ interface TypingTextProps {
 }
 
 export default function TypingText({
-  roles = ["Programmer", "Fullstack Dev", "Problem Solver"]
+  roles = ["BackEnd Dev", "Fullstack Dev", "Quality Assurance"]
 }: TypingTextProps) {
   const [text, setText] = useState('');
   const roleIndexRef = useRef(0);
