@@ -289,7 +289,7 @@ export default function Home() {
                                                             <div className="circle-dot"></div>
                                                             <h3 className="timeline-date"><i className="fa fa-calendar"></i> 2023-2027</h3>
                                                             <h4 className="timeline-title">Universitas Ahmad Dahlan</h4>
-                                                            <p style={{ textAlign: 'justify' }}>I studied at SMK Negeri 1 Purbalingga, majoring in Computer and Network Engineering (TKJ), gaining hardware and software knowledge.</p>
+                                                            <p style={{ textAlign: 'justify' }}>Bachelor’s Degree in Informatics. Studying web development, programming, databases, software engineering, and information technology.</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -303,8 +303,8 @@ export default function Home() {
                                                         <div className="timeline-item">
                                                             <div className="circle-dot"></div>
                                                             <h3 className="timeline-date"><i className="fa fa-calendar"></i> 2021-2022</h3>
-                                                            <h4 className="timeline-title">PKL di PT HCP</h4>
-                                                            <p style={{ textAlign: 'justify' }}>Bachelor&apos;s Degree in Informatics. Focused on web development, algorithms, and software engineering principles.</p>
+                                                            <h4 className="timeline-title">Internship (PKL) — PT HCP</h4>
+                                                            <p style={{ textAlign: 'justify' }}>Worked on fiber optic network installation and maintenance, including ODC/ODP installation, cable installation, and pole construction.</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -415,12 +415,12 @@ export default function Home() {
                                 <div className="contact-info-item padd-15">
                                     <div className="icon"><i className="fa fa-envelope"></i></div>
                                     <h4>Gmail</h4>
-                                    <p>zaidanahmad005@gmail.com</p>
+                                    <p>jydnahm@gmail.com</p>
                                 </div>
                                 <div className="contact-info-item padd-15">
                                     <div className="icon"><i className="fa fa-globe-asia"></i></div>
                                     <h4>Website</h4>
-                                    <p>www.noch.com</p>
+                                    <p>portojay.vercel.app</p>
                                 </div>
                             </div>
                             <h3 className="contact-title padd-15">SEND ME AN EMAIL ?</h3>
