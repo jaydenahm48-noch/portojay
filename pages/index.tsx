@@ -450,7 +450,7 @@ export default function Home() {
                             <div className="row">
                                 <div className="contact-info-item padd-15">
                                     <div className="icon"><i className="fa fa-phone"></i></div>
-                                    <h4>Call Us On</h4>
+                                    <h4>Call Me On</h4>
                                     <p>+62 82137513615</p>
                                 </div>
                                 <div className="contact-info-item padd-15">
