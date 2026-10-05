@@ -101,7 +101,7 @@ export default function Home() {
                                         improving myself, and I would be excited to collaborate with clients who value 
                                         enthusiasm, reliability, and growth potential.
                                     </p>
-                                    <a href="#" className="btn">Download CV</a>
+                                    <a href="\images\ZAIDANAHMAD_CV.pdf" className="btn">Download CV</a>
                                 </div>
                                 <div className="home-img padd-15">
                                     <div 
