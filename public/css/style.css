@@ -981,3 +981,225 @@ body::-webkit-scrollbar {
         padding-bottom: 5px;
     }
 }
+
+
+/* ==========================================
+   CERTIFICATE SECTION
+   ========================================== */
+
+/* Grid item — sama dengan portfolio */
+.certificate-item {
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+    margin-bottom: 30px;
+}
+
+.certificate-item-inner {
+    background-color: var(--bg-black-100);
+    border: 1px solid var(--bg-black-50);
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.certificate-item-inner:hover {
+    box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);
+    transform: translateY(-3px);
+}
+
+/* Gambar sertifikat */
+.certificate-img {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    background: var(--bg-black-50);
+}
+
+.certificate-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.certificate-item-inner:hover .certificate-img img {
+    transform: scale(1.05);
+}
+
+/* Placeholder jika tidak ada gambar */
+.certificate-img--placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.certificate-img--placeholder .fa {
+    font-size: 48px;
+    color: var(--skin-color);
+    opacity: 0.4;
+}
+
+/* Info di bawah gambar */
+.certificate-info {
+    padding: 14px 15px;
+}
+
+.certificate-info h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-black-900);
+    margin-bottom: 6px;
+    line-height: 1.4;
+}
+
+.certificate-issuer,
+.certificate-date {
+    font-size: 12px;
+    color: var(--text-black-700);
+    margin: 3px 0;
+}
+
+.certificate-issuer .fa,
+.certificate-date .fa {
+    color: var(--skin-color);
+    margin-right: 5px;
+    font-size: 11px;
+}
+
+/* Empty state */
+.certificate-empty {
+    flex: 0 0 100%;
+    max-width: 100%;
+    text-align: center;
+    padding: 40px 0;
+    color: var(--text-black-700);
+}
+
+/* ── Certificate Detail Modal ────────────────────────────────── */
+
+#certificateDetailOverlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 999;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+#certificateDetailCard {
+    max-width: 720px;
+    margin: 40px auto;
+    background: var(--bg-black-100);
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+}
+
+#certificateDetailCard .cd-close-btn {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: var(--text-black-900);
+    z-index: 10;
+    line-height: 1;
+}
+
+#certificateDetailCard .cd-image-wrap {
+    width: 100%;
+    max-height: 380px;
+    overflow: hidden;
+    background: var(--bg-black-50);
+}
+
+#certificateDetailCard .cd-image-wrap img {
+    width: 100%;
+    max-height: 380px;
+    object-fit: contain;
+    display: block;
+    background: var(--bg-black-50);
+}
+
+#certificateDetailCard .cd-body {
+    padding: 24px 28px 28px;
+}
+
+#certificateDetailCard .cd-body h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-black-900);
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+#certificateDetailCard .cd-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 14px;
+}
+
+#certificateDetailCard .cd-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: var(--text-black-700);
+}
+
+#certificateDetailCard .cd-meta-item .fa {
+    color: var(--skin-color);
+    font-size: 13px;
+    width: 16px;
+    text-align: center;
+}
+
+#certificateDetailCard .cd-description {
+    font-size: 14px;
+    color: var(--text-black-700);
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+#certificateDetailCard .cd-verify-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--skin-color);
+    color: #fff;
+    padding: 10px 24px;
+    border-radius: 40px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+#certificateDetailCard .cd-verify-btn:hover {
+    opacity: 0.85;
+}
+
+/* Responsive certificate grid */
+@media (max-width: 991px) {
+    .certificate-item {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 767px) {
+    .certificate-item {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    #certificateDetailCard .cd-body {
+        padding: 18px 16px 22px;
+    }
+}

@@ -19,6 +19,7 @@ const navItems: NavItem[] = [
     { href: '/admin/profile', label: 'Profile', icon: '👤' },
     { href: '/admin/services', label: 'Services', icon: '⚙️' },
     { href: '/admin/projects', label: 'Projects', icon: '📁' },
+    { href: '/admin/certificates', label: 'Certificates', icon: '🏆' },
     { href: '/admin/skills', label: 'Skills', icon: '⚡' },
     { href: '/admin/messages', label: 'Messages', icon: '✉️' },
 ];

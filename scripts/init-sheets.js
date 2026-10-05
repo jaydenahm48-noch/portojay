@@ -49,6 +49,7 @@ const SHEET_HEADERS = {
     ],
     Project_Images: ['id', 'project_id', 'image', 'caption', 'sort_order', 'created_at'],
     Messages: ['id', 'name', 'email', 'subject', 'message', 'created_at', 'status'],
+    Certificates: ['id', 'title', 'description', 'issuer', 'image', 'issued_date', 'credential_url', 'published', 'sort_order'],
 };
 
 const PROFILE_INITIAL_DATA = [

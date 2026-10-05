@@ -76,6 +76,7 @@ export default function Home() {
                         <li><a href="#about"><i className="fa fa-user"></i> About</a></li>
                         <li><a href="#service"><i className="fa fa-list"></i> Services</a></li>
                         <li><a href="#portfolio"><i className="fa fa-briefcase"></i> Portfolio</a></li>
+                        <li><a href="#certificate"><i className="fa fa-certificate"></i> Certificates</a></li>
                         <li><a href="#contact"><i className="fa fa-comments"></i> Contact</a></li>
                     </ul>
                 </div>
@@ -393,6 +394,28 @@ export default function Home() {
                         </div>
                     </section>
 
+                    {/* ── CERTIFICATES ──────────────────────────────────────────────── */}
+                    <section className="certificate section" id="certificate">
+                        <div className="container">
+                            <div className="row">
+                                <div className="section-title padd-15"><h2>Certificates</h2></div>
+                            </div>
+                            <div className="row">
+                                <div className="portfolio-heading padd-15"><h2>My Certificates :</h2></div>
+                            </div>
+                            {/* Certificate items di-render oleh loadCertificates() di script.js */}
+                            <div className="row" id="certificatesRow">
+                                <div className="certificate-item padd-15" style={{
+                                    flex: '0 0 100%', maxWidth: '100%',
+                                    textAlign: 'center', padding: '40px 0',
+                                    color: 'var(--text-black-700)'
+                                }}>
+                                    <i className="fa fa-spinner fa-spin" style={{ fontSize: '28px' }}></i>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
                     {/* ── CONTACT ───────────────────────────────────────────────────── */}
                     <section className="contact section" id="contact">
                         <div className="container">
@@ -559,6 +582,33 @@ export default function Home() {
                 }}></div>
             </div>
 
+            {/* ── Certificate Detail Modal ─────────────────────────────────────────── */}
+            <div id="certificateDetailOverlay">
+                <div id="certificateDetailCard">
+                    <button className="cd-close-btn" id="cdCloseBtn">&#x2715;</button>
+                    <div className="cd-image-wrap">
+                        <img id="cdImage" src="" alt="" />
+                    </div>
+                    <div className="cd-body">
+                        <h2 id="cdTitle"></h2>
+                        <div className="cd-meta">
+                            <div className="cd-meta-item" id="cdIssuerWrap">
+                                <i className="fa fa-building"></i>
+                                <span id="cdIssuer"></span>
+                            </div>
+                            <div className="cd-meta-item" id="cdDateWrap">
+                                <i className="fa fa-calendar"></i>
+                                <span id="cdDate"></span>
+                            </div>
+                        </div>
+                        <p className="cd-description" id="cdDescription"></p>
+                        <a id="cdVerifyBtn" className="cd-verify-btn" href="#" target="_blank" rel="noopener">
+                            <i className="fa fa-external-link-alt"></i> Lihat Sertifikat
+                        </a>
+                    </div>
+                </div>
+            </div>
+
             {/* ── Style Switcher ───────────────────────────────────────────────────── */}
             <div className="style-switcher">
                 <div className="style-switcher-toggler s-icon">
@@ -680,7 +730,15 @@ export default function Home() {
             if (e.key === 'Escape') closeLightbox();
           } else if (document.getElementById('portfolioDetailOverlay').style.display === 'block') {
             if (e.key === 'Escape') closePortfolioDetail();
+          } else if (document.getElementById('certificateDetailOverlay').style.display === 'block') {
+            if (e.key === 'Escape') closeCertificateDetail();
           }
+        });
+
+        // ── Certificate Detail close handler ────────────────────────────────
+        document.getElementById('cdCloseBtn').addEventListener('click', closeCertificateDetail);
+        document.getElementById('certificateDetailOverlay').addEventListener('click', function(e) {
+          if (e.target === this) closeCertificateDetail();
         });
 
         // ── Style switcher color onclick ─────────────────────────────────────

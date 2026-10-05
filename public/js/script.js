@@ -214,4 +214,93 @@ document.addEventListener('DOMContentLoaded', function () {
     loadProfile();
     loadServices();
     loadSkills();
+    loadCertificates();
 });
+
+/*--Dynamic Certificates Loader--*/
+async function loadCertificates() {
+    const row = document.getElementById('certificatesRow');
+    if (!row) return;
+
+    try {
+        const res = await fetch('/api/certificates');
+        const data = await res.json();
+
+        if (!res.ok || !data.success || !data.data || data.data.length === 0) {
+            row.innerHTML = '<div class="certificate-empty">Belum ada sertifikat.</div>';
+            return;
+        }
+
+        row.innerHTML = data.data.map(function (c) {
+            var imgHtml = c.image
+                ? '<div class="certificate-img"><img src="' + c.image + '" alt="' + c.title + '" onerror="this.parentElement.style.display=\'none\'"></div>'
+                : '<div class="certificate-img certificate-img--placeholder"><i class="fa fa-certificate"></i></div>';
+
+            var verifyBtn = c.credential_url
+                ? '<a href="' + c.credential_url + '" target="_blank" rel="noopener" class="certificate-verify-btn"><i class="fa fa-external-link-alt"></i> Lihat Sertifikat</a>'
+                : '';
+
+            return '<div class="certificate-item padd-15">'
+                + '<div class="certificate-item-inner shadow-dark" onclick="openCertificateDetail(\'' + encodeURIComponent(JSON.stringify(c)) + '\')">'
+                + imgHtml
+                + '<div class="certificate-info">'
+                + '<h4>' + (c.title || '') + '</h4>'
+                + (c.issuer ? '<p class="certificate-issuer"><i class="fa fa-building"></i> ' + c.issuer + '</p>' : '')
+                + (c.issued_date ? '<p class="certificate-date"><i class="fa fa-calendar"></i> ' + c.issued_date + '</p>' : '')
+                + '</div>'
+                + '</div>'
+                + '</div>';
+        }).join('');
+
+    } catch (err) {
+        row.innerHTML = '<div class="certificate-empty">Gagal memuat sertifikat.</div>';
+        console.warn('Certificates API error:', err);
+    }
+}
+
+/*--Certificate Detail Modal--*/
+function openCertificateDetail(encoded) {
+    var c = JSON.parse(decodeURIComponent(encoded));
+    var overlay = document.getElementById('certificateDetailOverlay');
+    if (!overlay) return;
+
+    // Gambar
+    var imgEl = document.getElementById('cdImage');
+    if (imgEl) {
+        if (c.image) {
+            imgEl.src = c.image;
+            imgEl.style.display = 'block';
+        } else {
+            imgEl.style.display = 'none';
+        }
+    }
+
+    // Info
+    var el = function (id) { return document.getElementById(id); };
+    if (el('cdTitle')) el('cdTitle').textContent = c.title || '';
+    if (el('cdIssuer')) el('cdIssuer').textContent = c.issuer || '';
+    if (el('cdIssuerWrap')) el('cdIssuerWrap').style.display = c.issuer ? 'flex' : 'none';
+    if (el('cdDate')) el('cdDate').textContent = c.issued_date || '';
+    if (el('cdDateWrap')) el('cdDateWrap').style.display = c.issued_date ? 'flex' : 'none';
+    if (el('cdDescription')) el('cdDescription').textContent = c.description || '';
+
+    var verifyEl = el('cdVerifyBtn');
+    if (verifyEl) {
+        if (c.credential_url) {
+            verifyEl.href = c.credential_url;
+            verifyEl.style.display = 'inline-flex';
+        } else {
+            verifyEl.style.display = 'none';
+        }
+    }
+
+    overlay.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeCertificateDetail() {
+    var overlay = document.getElementById('certificateDetailOverlay');
+    if (overlay) overlay.style.display = 'none';
+    document.body.style.overflow = '';
+}
+

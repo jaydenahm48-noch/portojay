@@ -43,6 +43,7 @@ export const SHEETS = {
     PROJECTS: 'Projects',
     PROJECT_IMAGES: 'Project_Images',
     MESSAGES: 'Messages',
+    CERTIFICATES: 'Certificates',
 } as const;
 
 // ── Generic Helpers ───────────────────────────────────────────────────────────
@@ -493,4 +494,71 @@ export async function deleteMessage(id: string): Promise<void> {
     const idx = rows.findIndex((r) => r.id === id);
     if (idx === -1) throw new Error(`Message ${id} tidak ditemukan`);
     await deleteSheetRow(SHEETS.MESSAGES, idx);
+}
+
+// ── Certificates ──────────────────────────────────────────────────────────────
+
+export interface Certificate {
+    id: string;
+    title: string;
+    description: string;
+    issuer: string;       // dari mana sertifikat (nama institusi/platform)
+    image: string;        // Google Drive URL/ID foto sertifikat
+    issued_date: string;  // bulan/tahun terbit, e.g. "Januari 2024"
+    credential_url: string; // link verifikasi (opsional)
+    published: string;
+    sort_order: string;
+}
+
+export async function getCertificates(): Promise<Certificate[]> {
+    return (await getSheetRows(SHEETS.CERTIFICATES)) as unknown as Certificate[];
+}
+
+export async function getCertificateById(id: string): Promise<Certificate | null> {
+    const rows = await getCertificates();
+    return rows.find((r) => r.id === id) ?? null;
+}
+
+export async function createCertificate(data: Omit<Certificate, 'id'>): Promise<Certificate> {
+    const { v4: uuidv4 } = await import('uuid');
+    const id = uuidv4();
+    const values = [
+        id,
+        data.title,
+        data.description,
+        data.issuer,
+        data.image,
+        data.issued_date,
+        data.credential_url,
+        data.published,
+        data.sort_order,
+    ];
+    await appendSheetRow(SHEETS.CERTIFICATES, values);
+    return { id, ...data };
+}
+
+export async function updateCertificate(id: string, data: Partial<Omit<Certificate, 'id'>>): Promise<void> {
+    const rows = await getCertificates();
+    const idx = rows.findIndex((r) => r.id === id);
+    if (idx === -1) throw new Error(`Certificate ${id} tidak ditemukan`);
+    const current = rows[idx];
+    const updated = { ...current, ...data };
+    await updateSheetRow(SHEETS.CERTIFICATES, idx, [
+        updated.id,
+        updated.title,
+        updated.description,
+        updated.issuer,
+        updated.image,
+        updated.issued_date,
+        updated.credential_url,
+        updated.published,
+        updated.sort_order,
+    ]);
+}
+
+export async function deleteCertificate(id: string): Promise<void> {
+    const rows = await getCertificates();
+    const idx = rows.findIndex((r) => r.id === id);
+    if (idx === -1) throw new Error(`Certificate ${id} tidak ditemukan`);
+    await deleteSheetRow(SHEETS.CERTIFICATES, idx);
 }
