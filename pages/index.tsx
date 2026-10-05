@@ -401,7 +401,9 @@ export default function Home() {
                                 <div className="section-title padd-15"><h2>Certificates</h2></div>
                             </div>
                             <div className="row">
-                                <div className="portfolio-heading padd-15"><h2>My Certificates :</h2></div>
+                                <div className="portfolio-heading padd-15">
+                                    <h2 style={{ color: 'var(--text-black-900)' }}>My Certificates :</h2>
+                                </div>
                             </div>
                             {/* Certificate items di-render oleh loadCertificates() di script.js */}
                             <div className="row" id="certificatesRow">
@@ -658,6 +660,31 @@ export default function Home() {
           }
         }
         loadPortfolio();
+
+        // ── Certificates Loader (inline agar tidak tergantung load order script.js) ──
+        async function loadCertificatesInline() {
+          var row = document.getElementById('certificatesRow');
+          if (!row) return;
+          try {
+            var res = await fetch('/api/certificates');
+            var data = await res.json();
+            var items = (data && data.success && Array.isArray(data.data)) ? data.data : [];
+            if (items.length === 0) {
+              row.innerHTML = '<div style="flex:0 0 100%;max-width:100%;text-align:center;padding:40px 0;color:var(--text-black-900);">Belum ada sertifikat.</div>';
+              return;
+            }
+            row.innerHTML = items.map(function(c) {
+              var imgHtml = c.image
+                ? '<div class="certificate-img"><img src="' + c.image + '" alt="' + (c.title||'') + '" loading="lazy" onerror="this.parentElement.style.display=\\'none\\'"></div>'
+                : '<div class="certificate-img certificate-img--placeholder"><i class="fa fa-certificate"></i></div>';
+              return '<div class="certificate-item padd-15"><div class="certificate-item-inner shadow-dark" style="cursor:pointer;" onclick="openCertificateDetail(\\'' + encodeURIComponent(JSON.stringify(c)) + '\\')">'+imgHtml+'<div class="certificate-info"><h4>'+(c.title||'')+'</h4>'+(c.issuer?'<p class="certificate-issuer"><i class=\\"fa fa-building\\"></i> '+c.issuer+'</p>':'')+(c.issued_date?'<p class="certificate-date"><i class=\\"fa fa-calendar\\"></i> '+c.issued_date+'</p>':'')+'</div></div></div>';
+            }).join('');
+          } catch(err) {
+            var r2 = document.getElementById('certificatesRow');
+            if (r2) r2.innerHTML = '<div style="flex:0 0 100%;max-width:100%;text-align:center;padding:40px 0;color:var(--text-black-900);">Gagal memuat sertifikat.</div>';
+          }
+        }
+        loadCertificatesInline();
 
         // ── Portfolio Detail Modal ──────────────────────────────────────────
         function openPortfolioDetail(encoded) {
