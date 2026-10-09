@@ -84,30 +84,34 @@ export default function Home() {
                 {/* ── Main Content ─────────────────────────────────────────────────── */}
                 <div className="main-content">
 
-                    {/* ── HOME ──────────────────────────────────────────────────────── */}
+                {/* ── HOME ──────────────────────────────────────────────────────── */}
                     <section className="home active section" id="home">
-                        <div className="container">
+                        {/* Pixel particle canvas — atmospheric depth */}
+                        <canvas id="pixelCanvas" style={{
+                            position: 'absolute', inset: 0,
+                            width: '100%', height: '100%',
+                            pointerEvents: 'none', zIndex: 0, opacity: 0.35
+                        }} />
+                        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                             <div className="row">
                                 <div className="home-info padd-15">
                                     <h3 className="hello">Hello, my name is <span>Zaidan</span></h3>
                                     <h3 className="my-profession">
-                                        I'm a <TypingText />
+                                        I&apos;m a <TypingText />
                                     </h3>
-                                    <p style={{ textAlign: 'justify' }}>
+                                    <p>
                                         I am a passionate fresh graduate and beginner programmer who is eager to 
-                                        grow by working on real projects. I may be at the start of my journey, but 
-                                        I bring strong dedication, quick learning skills, and a fresh perspective 
-                                        to every task. I am committed to delivering quality work while continuously 
-                                        improving myself, and I would be excited to collaborate with clients who value 
-                                        enthusiasm, reliability, and growth potential.
+                                        grow by working on real projects. I bring strong dedication, quick learning 
+                                        skills, and a fresh perspective to every task — committed to delivering 
+                                        quality work while continuously improving.
                                     </p>
-                                    <a href="images/ZAIDANAHMAD_CV.pdf" className="btn">Download CV</a>
+                                    <a href="/images/ZAIDANAHMAD_CV.pdf" className="btn" download>Download CV</a>
                                 </div>
                                 <div className="home-img padd-15">
                                     <div 
                                         style={{
-                                            width: '360px',        /* Diperbesar dari 260px */
-                                            height: '310px',       /* Diperbesar dari 220px */
+                                            width: '340px',
+                                            height: '300px',
                                             overflow: 'hidden',
                                             margin: '0 auto',
                                             display: 'flex',
@@ -659,6 +663,56 @@ export default function Home() {
             <Script src="/js/script.js" strategy="afterInteractive" />
             <Script src="/js/style-switcher.js" strategy="afterInteractive" />
             <Script id="portfolio-contact-handler" strategy="afterInteractive">{`
+
+        // ── Pixel Particle Canvas (Home atmospheric depth) ──────────────────
+        (function initPixelCanvas() {
+          var canvas = document.getElementById('pixelCanvas');
+          if (!canvas) return;
+          var ctx = canvas.getContext('2d');
+          var particles = [];
+          var COLORS = ['#ec1839','#ffffff','#8fa3b8','#1e2a3a'];
+
+          function resize() {
+            canvas.width  = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+          }
+          resize();
+          window.addEventListener('resize', resize);
+
+          // Spawn ~60 pixel particles
+          for (var i = 0; i < 60; i++) {
+            particles.push({
+              x: Math.random() * canvas.width,
+              y: Math.random() * canvas.height,
+              size: Math.random() < 0.6 ? 2 : 4,
+              color: COLORS[Math.floor(Math.random() * COLORS.length)],
+              vx: (Math.random() - 0.5) * 0.35,
+              vy: -Math.random() * 0.4 - 0.15,
+              alpha: Math.random() * 0.6 + 0.2,
+            });
+          }
+
+          function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (var p of particles) {
+              ctx.globalAlpha = p.alpha;
+              ctx.fillStyle = p.color;
+              ctx.fillRect(Math.round(p.x), Math.round(p.y), p.size, p.size);
+              p.x += p.vx;
+              p.y += p.vy;
+              if (p.y < -8) { p.y = canvas.height + 4; p.x = Math.random() * canvas.width; }
+              if (p.x < -8) p.x = canvas.width + 4;
+              if (p.x > canvas.width + 8) p.x = -4;
+            }
+            ctx.globalAlpha = 1;
+            requestAnimationFrame(draw);
+          }
+
+          // Only run if not prefers-reduced-motion
+          var mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+          if (!mq.matches) draw();
+        })();
+
         // ── Portfolio Loader ────────────────────────────────────────────────
         async function loadPortfolio() {
           const row = document.getElementById('portfolioRow');
