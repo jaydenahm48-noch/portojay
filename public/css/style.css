@@ -1,14 +1,14 @@
-/* ============================================================
-   NOCH PORTFOLIO — PIXEL WORLD REDESIGN
+﻿/* ============================================================
+   NOCH PORTFOLIO â€” PIXEL WORLD REDESIGN
    Press Start 2P + VT323 loaded via _document.tsx
    Skin color switched dynamically via style-switcher.js
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-/* ── CSS Variables ─────────────────────────────────────────── */
+/* â”€â”€ CSS Variables â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 :root {
-    /* Dark mode (default) — deep navy pixel world */
+    /* Dark mode (default) â€” deep navy pixel world */
     --bg-black-900:  #0a0e1a;
     --bg-black-100:  #111827;
     --bg-black-50:   #1e2a3a;
@@ -38,7 +38,7 @@ body.dark {
     --nav-bg:        rgba(255,255,255,0.97);
 }
 
-/* ── Reset & Base ──────────────────────────────────────────── */
+/* â”€â”€ Reset & Base â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; outline: none; text-decoration: none; }
 ul { list-style: none; }
 
@@ -57,7 +57,7 @@ body {
 }
 body::-webkit-scrollbar { display: none; }
 
-/* ── Pixel grid overlay on sections ───────────────────────── */
+/* â”€â”€ Pixel grid overlay on sections â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .section::after {
     content: '';
     position: fixed;
@@ -70,7 +70,7 @@ body::-webkit-scrollbar { display: none; }
     z-index: 0;
 }
 
-/* ── Section layout ────────────────────────────────────────── */
+/* â”€â”€ Section layout â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .section {
     background-image: var(--bg-gradient);
     background-size: cover;
@@ -139,7 +139,7 @@ body.dark .section > * { position: relative; z-index: 1; }
     position: relative;
 }
 
-/* ── Section titles ─────────────────────────────────────────── */
+/* â”€â”€ Section titles â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .section-title {
     flex: 0 0 100%;
     max-width: 100%;
@@ -166,7 +166,7 @@ body.dark .section > * { position: relative; z-index: 1; }
     box-shadow: 4px 0 0 var(--skin-color), 8px 0 0 var(--skin-color);
 }
 
-/* ── Buttons ────────────────────────────────────────────────── */
+/* â”€â”€ Buttons â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .btn {
     font-family: 'Press Start 2P', monospace;
     font-size: 10px;
@@ -190,7 +190,7 @@ body.dark .section > * { position: relative; z-index: 1; }
 
 .shadow-dark { box-shadow: 0 4px 24px rgba(0,0,0,0.4); }
 
-/* ── Sidebar / Aside ────────────────────────────────────────── */
+/* â”€â”€ Sidebar / Aside â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .aside {
     width: 260px;
     background: var(--nav-bg);
@@ -243,7 +243,7 @@ body.dark .section > * { position: relative; z-index: 1; }
     display: none;
     align-items: center;
     justify-content: center;
-    z-index: 20;
+    z-index: 1020;
     backdrop-filter: blur(8px);
     clip-path: polygon(0 0,calc(100% - 5px) 0,100% 5px,100% 100%,5px 100%,0 calc(100% - 5px));
 }
@@ -308,7 +308,7 @@ body.dark .section > * { position: relative; z-index: 1; }
 
 /* Pixel accent on active nav */
 .aside .nav li a.active::after {
-    content: '▶';
+    content: 'â–¶';
     font-family: monospace;
     font-size: 8px;
     margin-left: auto;
@@ -320,7 +320,7 @@ body.dark .section > * { position: relative; z-index: 1; }
     50% { opacity: 0; }
 }
 
-/* ── HOME ───────────────────────────────────────────────────── */
+/* â”€â”€ HOME â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .home {
     min-height: 100vh;
     display: flex;
@@ -407,7 +407,7 @@ h3.my-profession {
 }
 .home .home-img::after { display: none; }
 
-/* ── ABOUT ──────────────────────────────────────────────────── */
+/* â”€â”€ ABOUT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .about .about-content { flex: 0 0 100%; max-width: 100%; }
 .about .about-content .about-text { flex: 0 0 100%; max-width: 100%; margin-bottom: 28px; }
 .about .about-content .about-text h3 {
@@ -548,7 +548,7 @@ h3.my-profession {
     color: var(--text-black-700);
 }
 
-/* ── SERVICES ───────────────────────────────────────────────── */
+/* â”€â”€ SERVICES â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .service .container { padding-bottom: 40px; }
 .service .service-item { flex: 0 0 33.33%; max-width: 33.33%; margin-bottom: 28px; }
 .service .service-item .service-item-inner {
@@ -614,7 +614,7 @@ h3.my-profession {
     line-height: 1.65;
 }
 
-/* ── PORTFOLIO ──────────────────────────────────────────────── */
+/* â”€â”€ PORTFOLIO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .portfolio .portfolio-heading {
     flex: 0 0 100%;
     max-width: 100%;
@@ -694,7 +694,7 @@ h3.my-profession {
     letter-spacing: 0.02em;
 }
 
-/* ── CERTIFICATES ───────────────────────────────────────────── */
+/* â”€â”€ CERTIFICATES â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .certificate .portfolio-heading h2 {
     font-family: 'VT323', monospace;
     font-size: 22px;
@@ -715,7 +715,7 @@ h3.my-profession {
     position: relative;
 }
 .certificate-item-inner::before {
-    content: '🏆';
+    content: 'ðŸ†';
     position: absolute;
     top: 8px; right: 8px;
     font-size: 14px;
@@ -792,7 +792,7 @@ h3.my-profession {
     letter-spacing: 0.06em;
 }
 
-/* ── Certificate Detail Modal ───────────────────────────────── */
+/* â”€â”€ Certificate Detail Modal â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 #certificateDetailOverlay {
     display: none;
     position: fixed;
@@ -872,7 +872,7 @@ h3.my-profession {
 }
 #certificateDetailCard .cd-verify-btn:hover { filter: brightness(1.2); }
 
-/* ── CONTACT ────────────────────────────────────────────────── */
+/* â”€â”€ CONTACT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .contact-title {
     font-family: 'Press Start 2P', monospace;
     font-size: 13px;
@@ -930,7 +930,7 @@ h3.my-profession {
 .contact .contact-form .form-item textarea.form-control { height: 130px; resize: vertical; }
 .contact .contact-form .btn { height: 46px; padding: 0 40px; }
 
-/* ── Style Switcher ─────────────────────────────────────────── */
+/* â”€â”€ Style Switcher â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .style-switcher {
     position: fixed;
     right: 0;
@@ -997,7 +997,7 @@ h3.my-profession {
 .style-switcher .color-4 { background: #1854b4; }
 .style-switcher .color-5 { background: #f021b2; }
 
-/* ── Portfolio Detail Modals ────────────────────────────────── */
+/* â”€â”€ Portfolio Detail Modals â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 #portfolioDetailOverlay { overflow-y: auto; padding: 20px; }
 #portfolioDetailCard {
     max-width: 860px;
@@ -1008,7 +1008,7 @@ h3.my-profession {
     position: relative;
 }
 
-/* ── Typing cursor ──────────────────────────────────────────── */
+/* â”€â”€ Typing cursor â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .custom-typing-effect {
     color: var(--skin-color);
     font-size: inherit;
@@ -1022,31 +1022,32 @@ h3.my-profession {
     50% { border-color: var(--skin-color); }
 }
 
-/* ── Scrollbar hide ─────────────────────────────────────────── */
+/* â”€â”€ Scrollbar hide â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .section::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
 .section, body { -ms-overflow-style: none; scrollbar-width: none; }
 
-/* ── Main container ─────────────────────────────────────────── */
+/* â”€â”€ Main container â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .main-container { position: relative; }
 .main-content { position: relative; }
 
-/* ══════════════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    RESPONSIVE
-   ══════════════════════════════════════════════════════════════ */
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
-/* ── ≤ 1199px (tablet landscape) ───────────────────────────── */
+/* â”€â”€ â‰¤ 1199px (tablet landscape) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @media (max-width: 1199px) {
     .section .container { padding-top: 72px; }
     .section { left: 0; padding: 0 24px; }
     .aside { left: -260px; }
     .aside.open { left: 0; }
-    .aside .nav-toggler { display: flex; }
+    /* Tampilkan burger button */
+    .aside .nav-toggler { display: flex; left: 16px; top: 16px; }
     .aside .nav-toggler.open { left: 274px; }
     .section.open { left: 260px; }
     .about .about-content .personal-info .info-item p span { display: block; margin-left: 0; }
 }
 
-/* ── ≤ 991px (tablet) ──────────────────────────────────────── */
+/* â”€â”€ â‰¤ 991px (tablet) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @media (max-width: 991px) {
     .aside { z-index: 1000 !important; }
     .section { padding: 0 16px !important; left: 0 !important; }
@@ -1070,7 +1071,7 @@ h3.my-profession {
     .home .row { flex-direction: column; align-items: center; }
 }
 
-/* ── ≤ 767px (mobile) ──────────────────────────────────────── */
+/* â”€â”€ â‰¤ 767px (mobile) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @media (max-width: 767px) {
     .contact .contact-form .col-6,
     .contact .contact-info-item,
@@ -1102,7 +1103,7 @@ h3.my-profession {
         margin-bottom: 8px;
     }
 
-    /* Style switcher mobile positioning */
+    /* Style switcher mobile positioning â€” geser ke kanan, burger tetap di kiri */
     .style-switcher-toggler {
         position: fixed !important;
         top: 14px !important; right: 14px !important;
@@ -1114,6 +1115,12 @@ h3.my-profession {
         top: 14px !important; right: 58px !important;
         left: auto !important; z-index: 1010 !important;
         width: 36px !important; height: 36px !important;
+    }
+    /* Burger tetap di kiri â€” z-index lebih tinggi dari style-switcher */
+    .aside .nav-toggler {
+        left: 16px !important;
+        top: 14px !important;
+        z-index: 1020 !important;
     }
     .style-switcher {
         position: fixed !important;
