@@ -1130,3 +1130,55 @@ h3.my-profession {
     }
     .style-switcher.open { right: 0 !important; }
 }
+
+/* ── Global burger button — independent dari aside ─────────── */
+.nav-toggler-btn {
+    display: none;
+    position: fixed;
+    left: 16px;
+    top: 16px;
+    width: 42px;
+    height: 38px;
+    background: var(--nav-bg);
+    border: 1px solid var(--card-border);
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    z-index: 1025;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    clip-path: polygon(0 0, calc(100% - 5px) 0, 100% 5px, 100% 100%, 5px 100%, 0 calc(100% - 5px));
+    transition: background 0.2s;
+}
+.nav-toggler-btn:hover { background: rgba(236,24,57,0.15); }
+.nav-toggler-btn span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    background: var(--skin-color);
+    position: relative;
+    transition: background 0.2s;
+}
+.nav-toggler-btn span::before,
+.nav-toggler-btn span::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 18px;
+    height: 2px;
+    background: var(--skin-color);
+    transition: transform 0.25s, top 0.25s;
+}
+.nav-toggler-btn span::before { top: -6px; }
+.nav-toggler-btn span::after  { top:  6px; }
+
+/* Open state */
+.nav-toggler-btn.open span { background: transparent; }
+.nav-toggler-btn.open span::before { transform: rotate(45deg);  top: 0; }
+.nav-toggler-btn.open span::after  { transform: rotate(-45deg); top: 0; }
+
+@media (max-width: 1199px) {
+    .nav-toggler-btn { display: flex; }
+    /* Sembunyikan nav-toggler yang di dalam aside (replaced oleh global btn) */
+    .aside .nav-toggler { display: none !important; }
+}

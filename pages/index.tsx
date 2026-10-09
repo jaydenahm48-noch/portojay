@@ -57,12 +57,21 @@ export default function Home() {
             {/* ── Main Container ───────────────────────────────────────────────────── */}
             <div className="main-container">
 
+                {/* ── Burger Button — di luar aside agar tidak ikut slide ── */}
+                <button
+                    className="nav-toggler-btn"
+                    id="globalNavToggler"
+                    aria-label="Buka menu navigasi"
+                >
+                    <span></span>
+                </button>
+
                 {/* ── Aside / Sidebar ─────────────────────────────────────────────── */}
                 <div className="aside">
                     <div className="logo">
-                        <a 
-                            href="#home" 
-                            onClick={(e) => {
+                        <a
+                            href="#home"
+                            onClick={() => {
                                 const homeNavLink = document.querySelector('.nav a[href="#home"]') as HTMLElement;
                                 if (homeNavLink) homeNavLink.click();
                             }}
@@ -70,7 +79,8 @@ export default function Home() {
                             <img src="/images/img1.png" alt="Logo" />
                         </a>
                     </div>
-                    <div className="nav-toggler"><span></span></div>
+                    {/* nav-toggler di dalam aside tetap untuk backward-compat JS */}
+                    <div className="nav-toggler" id="asideNavToggler"><span></span></div>
                     <ul className="nav">
                         <li><a href="#home" className="active"><i className="fa fa-home"></i> Home</a></li>
                         <li><a href="#about"><i className="fa fa-user"></i> About</a></li>
@@ -711,6 +721,20 @@ export default function Home() {
           // Only run if not prefers-reduced-motion
           var mq = window.matchMedia('(prefers-reduced-motion: reduce)');
           if (!mq.matches) draw();
+        })();
+
+        // ── Global burger button (outside aside, position:fixed independent) ──
+        (function() {
+          var btn = document.getElementById('globalNavToggler');
+          if (!btn) return;
+          btn.addEventListener('click', function() {
+            // Trigger same logic as the internal nav-toggler
+            var aside = document.querySelector('.aside');
+            var sections = document.querySelectorAll('.section');
+            aside.classList.toggle('open');
+            btn.classList.toggle('open');
+            sections.forEach(function(s) { s.classList.toggle('open'); });
+          });
         })();
 
         // ── Portfolio Loader ────────────────────────────────────────────────

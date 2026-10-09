@@ -68,6 +68,9 @@ navTogglerBtn.addEventListener('click', () => { asideSectionTogglerBtn(); });
 function asideSectionTogglerBtn() {
     aside.classList.toggle('open');
     navTogglerBtn.classList.toggle('open');
+    // Sync global burger button state
+    var globalBtn = document.getElementById('globalNavToggler');
+    if (globalBtn) globalBtn.classList.toggle('open');
     for (let i = 0; i < totalSection; i++) {
         allSection[i].classList.toggle('open');
     }
