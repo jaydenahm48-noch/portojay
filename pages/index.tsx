@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Public Frontend — Portfolio Website
  * Struktur HTML dipertahankan dari D:\REACTPORT\index.html.
  * Data portfolio dan contact di-fetch melalui API routes.
@@ -52,6 +52,8 @@ export default function Home() {
                 <link rel="stylesheet" href="/css/skins/color-4.css" className="alternate-style" title="color-4" {...{ disabled: true } as object} />
                 <link rel="stylesheet" href="/css/skins/color-5.css" className="alternate-style" title="color-5" {...{ disabled: true } as object} />
                 <link rel="stylesheet" href="/css/style-switcher.css" />
+                {/* About section animations */}
+                <link rel="stylesheet" href="/css/about-animations.css" />
             </Head>
 
             {/* ── Main Container ───────────────────────────────────────────────────── */}
@@ -150,157 +152,82 @@ export default function Home() {
                     </section>
 
                     {/* ── ABOUT ─────────────────────────────────────────────────────── */}
+                    {/* ── ABOUT ─────────────────────────────────────────────────────── */}
                     <section className="about section" id="about">
-                        <div className="container">
+                        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                             <div className="row">
                                 <div className="section-title padd-15"><h2>About Me</h2></div>
                             </div>
                             <div className="row">
                                 <div className="about-content padd-15">
+
+                                    {/* ── RPG Dialogue Box ───────────────────────── */}
                                     <div className="row">
                                         <div className="about-text padd-15">
-                                            <h3>I&apos;m Zaidan and <span>Programmer</span></h3>
-                                            <p style={{ textAlign: 'justify' }}>
-                                                I&apos;m a fresh graduate with a Bachelor&apos;s Degree in Informatics from Universitas
-                                                Ahmad Dahlan. I am passionate about programming, web development, and creating
-                                                digital solutions that bring real impact. Even though I am just starting my
-                                                professional journey, I am eager to learn, adapt, and deliver quality work for
-                                                every project I take on. If you are looking for a motivated programmer who is
-                                                ready to grow and contribute, I would love to collaborate with you!
-                                            </p>
+                                            <h3>I&apos;m <span>Zaidan</span> &mdash; Programmer</h3>
+                                            <div
+                                                className="rpg-dialog"
+                                                id="about-dialog"
+                                                data-full-text="I'm a fresh graduate in Informatics from Universitas Ahmad Dahlan. Passionate about programming, web development, and creating digital solutions that bring real impact. Eager to learn, adapt, and deliver quality work — ready to grow and collaborate."
+                                            >
+                                                <div className="rpg-dialog-header">PLAYER LOG</div>
+                                                <div className="rpg-dialog-text">
+                                                    <span className="rpg-typewriter"></span>
+                                                    <span className="rpg-typewriter-cursor" aria-hidden="true"></span>
+                                                </div>
+                                                <span className="rpg-skip" role="button" tabIndex={0} aria-label="Skip animation">[ TAP TO SKIP ]</span>
+                                            </div>
                                         </div>
                                     </div>
+
                                     <div className="row">
                                         {/* Personal Info */}
                                         <div className="personal-info padd-15" style={{ paddingLeft: '30px', paddingRight: '20px' }}>
                                             <div className="row">
-                                                    {/* Kolom Kiri */}
-                                                    <div className="info-item">
-                                                        <table style={{ width: '100%', borderCollapse: 'collapse', tableLayout: 'fixed' }}>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td style={{ width: '90px', fontWeight: 'bold', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>Birthday</td>
-                                                                    <td style={{ width: '15px', textAlign: 'center', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>:</td>
-                                                                    <td style={{ padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-700)' }}>19 NOV 2005</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td style={{ fontWeight: 'bold', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>Instagram</td>
-                                                                    <td style={{ textAlign: 'center', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>:</td>
-                                                                    <td style={{ padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-700)' }}>@jayden.noch</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td style={{ fontWeight: 'bold', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>Website</td>
-                                                                    <td style={{ textAlign: 'center', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>:</td>
-                                                                    <td style={{ padding: '6px 0', verticalAlign: 'top', wordBreak: 'break-all', color: 'var(--text-black-700)' }}>portojay.vercel.app</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td style={{ fontWeight: 'bold', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>Phone</td>
-                                                                    <td style={{ textAlign: 'center', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>:</td>
-                                                                    <td style={{ padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-700)' }}>+62 813 751 3615</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td style={{ fontWeight: 'bold', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>Country</td>
-                                                                    <td style={{ textAlign: 'center', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>:</td>
-                                                                    <td style={{ padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-700)' }}>Indonesia</td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-
-                                                    {/* Kolom Kanan */}
-                                                    <div className="info-item">
-                                                        <table style={{ width: '100%', borderCollapse: 'collapse', tableLayout: 'fixed' }}>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td style={{ width: '90px', fontWeight: 'bold', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>Age</td>
-                                                                    <td style={{ width: '15px', textAlign: 'center', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>:</td>
-                                                                    <td style={{ padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-700)' }}>20</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td style={{ fontWeight: 'bold', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>Gmail</td>
-                                                                    <td style={{ textAlign: 'center', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>:</td>
-                                                                    <td style={{ padding: '6px 0', verticalAlign: 'top', wordBreak: 'break-all', color: 'var(--text-black-700)' }}>zaidanahmad005@gmail.com</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td style={{ fontWeight: 'bold', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>Degree</td>
-                                                                    <td style={{ textAlign: 'center', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>:</td>
-                                                                    <td style={{ padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-700)' }}>CS</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td style={{ fontWeight: 'bold', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>City</td>
-                                                                    <td style={{ textAlign: 'center', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>:</td>
-                                                                    <td style={{ padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-700)' }}>Yogyakarta</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td style={{ fontWeight: 'bold', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>Freelance</td>
-                                                                    <td style={{ textAlign: 'center', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>:</td>
-                                                                    <td style={{ padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-700)' }}>Available</td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
+                                                <div className="info-item">
+                                                    <table style={{ width: '100%', borderCollapse: 'collapse', tableLayout: 'fixed' }}>
+                                                        <tbody>
+                                                            <tr className="about-info-row"><td style={{ width: '90px', fontWeight: 'bold', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>Birthday</td><td style={{ width: '15px', textAlign: 'center', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>:</td><td style={{ padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-700)' }}>19 NOV 2005</td></tr>
+                                                            <tr className="about-info-row"><td style={{ fontWeight: 'bold', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>Instagram</td><td style={{ textAlign: 'center', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>:</td><td style={{ padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-700)' }}>@jayden.noch</td></tr>
+                                                            <tr className="about-info-row"><td style={{ fontWeight: 'bold', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>Website</td><td style={{ textAlign: 'center', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>:</td><td style={{ padding: '6px 0', verticalAlign: 'top', wordBreak: 'break-all', color: 'var(--text-black-700)' }}>portojay.vercel.app</td></tr>
+                                                            <tr className="about-info-row"><td style={{ fontWeight: 'bold', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>Phone</td><td style={{ textAlign: 'center', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>:</td><td style={{ padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-700)' }}>+62 813 751 3615</td></tr>
+                                                            <tr className="about-info-row"><td style={{ fontWeight: 'bold', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>Country</td><td style={{ textAlign: 'center', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>:</td><td style={{ padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-700)' }}>Indonesia</td></tr>
+                                                        </tbody>
+                                                    </table>
                                                 </div>
+                                                <div className="info-item">
+                                                    <table style={{ width: '100%', borderCollapse: 'collapse', tableLayout: 'fixed' }}>
+                                                        <tbody>
+                                                            <tr className="about-info-row"><td style={{ width: '90px', fontWeight: 'bold', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>Age</td><td style={{ width: '15px', textAlign: 'center', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>:</td><td style={{ padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-700)' }}>20</td></tr>
+                                                            <tr className="about-info-row"><td style={{ fontWeight: 'bold', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>Gmail</td><td style={{ textAlign: 'center', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>:</td><td style={{ padding: '6px 0', verticalAlign: 'top', wordBreak: 'break-all', color: 'var(--text-black-700)' }}>zaidanahmad005@gmail.com</td></tr>
+                                                            <tr className="about-info-row"><td style={{ fontWeight: 'bold', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>Degree</td><td style={{ textAlign: 'center', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>:</td><td style={{ padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-700)' }}>CS</td></tr>
+                                                            <tr className="about-info-row"><td style={{ fontWeight: 'bold', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>City</td><td style={{ textAlign: 'center', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>:</td><td style={{ padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-700)' }}>Yogyakarta</td></tr>
+                                                            <tr className="about-info-row"><td style={{ fontWeight: 'bold', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>Freelance</td><td style={{ textAlign: 'center', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>:</td><td style={{ padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-700)' }}>Available</td></tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
                                             <div className="row">
                                                 <div className="buttons padd-15">
                                                     <a href="#contact" data-section-index="1" className="btn hire-me">Hire Me</a>
                                                 </div>
                                             </div>
                                         </div>
+
                                         {/* Skills */}
                                         <div className="skills padd-15">
                                             <div className="row">
-                                                <div className="skill-item padd-15">
-                                                    <h5>HTML, CSS</h5>
-                                                    <div className="progress">
-                                                        <div className="progress-in" style={{ width: '70%' }}></div>
-                                                        <div className="skill-percent">70%</div>
-                                                    </div>
-                                                </div>
-                                                <div className="skill-item padd-15">
-                                                    <h5>JS</h5>
-                                                    <div className="progress">
-                                                        <div className="progress-in" style={{ width: '65%' }}></div>
-                                                        <div className="skill-percent">65%</div>
-                                                    </div>
-                                                </div>
-                                                <div className="skill-item padd-15">
-                                                    <h5>C++</h5>
-                                                    <div className="progress">
-                                                        <div className="progress-in" style={{ width: '65%' }}></div>
-                                                        <div className="skill-percent">65%</div>
-                                                    </div>
-                                                </div>
-                                                <div className="skill-item padd-15">
-                                                    <h5>Laravel</h5>
-                                                    <div className="progress">
-                                                        <div className="progress-in" style={{ width: '70%' }}></div>
-                                                        <div className="skill-percent">70%</div>
-                                                    </div>
-                                                </div>
-                                                <div className="skill-item padd-15">
-                                                    <h5>PHP</h5>
-                                                    <div className="progress">
-                                                        <div className="progress-in" style={{ width: '70%' }}></div>
-                                                        <div className="skill-percent">70%</div>
-                                                    </div>
-                                                </div>
-                                                <div className="skill-item padd-15">
-                                                    <h5>MySQL</h5>
-                                                    <div className="progress">
-                                                        <div className="progress-in" style={{ width: '70%' }}></div>
-                                                        <div className="skill-percent">70%</div>
-                                                    </div>
-                                                </div>
-                                                <div className="skill-item padd-15">
-                                                    <h5>API</h5>
-                                                    <div className="progress">
-                                                        <div className="progress-in" style={{ width: '70%' }}></div>
-                                                        <div className="skill-percent">70%</div>
-                                                    </div>
-                                                </div>
+                                                <div className="skill-item padd-15"><h5>HTML, CSS</h5><div className="progress"><div className="progress-in" style={{ width: '70%' }}></div><div className="skill-percent">70%</div></div></div>
+                                                <div className="skill-item padd-15"><h5>JS</h5><div className="progress"><div className="progress-in" style={{ width: '65%' }}></div><div className="skill-percent">65%</div></div></div>
+                                                <div className="skill-item padd-15"><h5>C++</h5><div className="progress"><div className="progress-in" style={{ width: '65%' }}></div><div className="skill-percent">65%</div></div></div>
+                                                <div className="skill-item padd-15"><h5>Laravel</h5><div className="progress"><div className="progress-in" style={{ width: '70%' }}></div><div className="skill-percent">70%</div></div></div>
+                                                <div className="skill-item padd-15"><h5>PHP</h5><div className="progress"><div className="progress-in" style={{ width: '70%' }}></div><div className="skill-percent">70%</div></div></div>
+                                                <div className="skill-item padd-15"><h5>MySQL</h5><div className="progress"><div className="progress-in" style={{ width: '70%' }}></div><div className="skill-percent">70%</div></div></div>
+                                                <div className="skill-item padd-15"><h5>API</h5><div className="progress"><div className="progress-in" style={{ width: '70%' }}></div><div className="skill-percent">70%</div></div></div>
                                             </div>
                                         </div>
                                     </div>
+
                                     {/* Education & Experience */}
                                     <div className="row">
                                         <div className="education padd-15">
@@ -308,30 +235,10 @@ export default function Home() {
                                             <div className="row">
                                                 <div className="timeline-box padd-15">
                                                     <div className="timeline shadow-dark">
-                                                        <div className="timeline-item">
-                                                            <div className="circle-dot"></div>
-                                                            <h3 className="timeline-date"><i className="fa fa-calendar"></i> 2011-2016</h3>
-                                                            <h4 className="timeline-title">MI Istiqomah Sambas PBG</h4>
-                                                            <p style={{ textAlign: 'justify' }}>I began my educational journey at MI Istiqomah Sambas, where I developed a strong foundation in learning, discipline, and curiosity.</p>
-                                                        </div>
-                                                        <div className="timeline-item">
-                                                            <div className="circle-dot"></div>
-                                                            <h3 className="timeline-date"><i className="fa fa-calendar"></i> 2017-2019</h3>
-                                                            <h4 className="timeline-title">Istiqomah Sambas PBG Junior High School</h4>
-                                                            <p style={{ textAlign: 'justify' }}>I continued my studies at Istiqomah Sambas Junior High School, strengthening academic skills and learning teamwork.</p>
-                                                        </div>
-                                                        <div className="timeline-item">
-                                                            <div className="circle-dot"></div>
-                                                            <h3 className="timeline-date"><i className="fa fa-calendar"></i> 2020-2023</h3>
-                                                            <h4 className="timeline-title">SMKN 1 PBG</h4>
-                                                            <p style={{ textAlign: 'justify' }}>I studied at SMK Negeri 1 Purbalingga, majoring in Computer and Network Engineering (TKJ), gaining hardware and software knowledge.</p>
-                                                        </div>
-                                                        <div className="timeline-item">
-                                                            <div className="circle-dot"></div>
-                                                            <h3 className="timeline-date"><i className="fa fa-calendar"></i> 2023-2027</h3>
-                                                            <h4 className="timeline-title">Universitas Ahmad Dahlan</h4>
-                                                            <p style={{ textAlign: 'justify' }}>Bachelor’s Degree in Informatics. Studying web development, programming, databases, software engineering, and information technology.</p>
-                                                        </div>
+                                                        <div className="timeline-item"><div className="circle-dot"></div><h3 className="timeline-date"><i className="fa fa-calendar"></i> 2011&ndash;2016</h3><h4 className="timeline-title">MI Istiqomah Sambas PBG</h4><p>Strong foundation in learning, discipline, and curiosity.</p></div>
+                                                        <div className="timeline-item"><div className="circle-dot"></div><h3 className="timeline-date"><i className="fa fa-calendar"></i> 2017&ndash;2019</h3><h4 className="timeline-title">Istiqomah Sambas PBG Junior High</h4><p>Strengthened academic skills and teamwork.</p></div>
+                                                        <div className="timeline-item"><div className="circle-dot"></div><h3 className="timeline-date"><i className="fa fa-calendar"></i> 2020&ndash;2023</h3><h4 className="timeline-title">SMKN 1 PBG</h4><p>Computer and Network Engineering (TKJ) — hardware and software knowledge.</p></div>
+                                                        <div className="timeline-item"><div className="circle-dot"></div><h3 className="timeline-date"><i className="fa fa-calendar"></i> 2023&ndash;2027</h3><h4 className="timeline-title">Universitas Ahmad Dahlan</h4><p>Bachelor&apos;s in Informatics — web dev, programming, databases, software engineering.</p></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -341,22 +248,17 @@ export default function Home() {
                                             <div className="row">
                                                 <div className="timeline-box padd-15">
                                                     <div className="timeline shadow-dark">
-                                                        <div className="timeline-item">
-                                                            <div className="circle-dot"></div>
-                                                            <h3 className="timeline-date"><i className="fa fa-calendar"></i> 2021-2022</h3>
-                                                            <h4 className="timeline-title">Internship (PKL) — PT HCP</h4>
-                                                            <p style={{ textAlign: 'justify' }}>Worked on fiber optic network installation and maintenance, including ODC/ODP installation, cable installation, and pole construction.</p>
-                                                        </div>
+                                                        <div className="timeline-item"><div className="circle-dot"></div><h3 className="timeline-date"><i className="fa fa-calendar"></i> 2021&ndash;2022</h3><h4 className="timeline-title">Internship (PKL) &mdash; PT HCP</h4><p>Fiber optic installation and maintenance: ODC/ODP, cable runs, pole construction.</p></div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
                     </section>
-
                     {/* ── SERVICES ──────────────────────────────────────────────────── */}
                     <section className="service section" id="service">
                         <div className="container">
@@ -677,6 +579,7 @@ export default function Home() {
             />
             <Script src="/js/script.js" strategy="afterInteractive" />
             <Script src="/js/style-switcher.js" strategy="afterInteractive" />
+            <Script src="/js/about-animations.js" strategy="afterInteractive" />
             <Script id="portfolio-contact-handler" strategy="afterInteractive">{`
 
         // ── Pixel Particle Canvas (Home atmospheric depth) ──────────────────
