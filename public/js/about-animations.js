@@ -92,9 +92,24 @@
                 return;
             }
             setTimeout(function () {
+                var bar = qs('.progress-in', item);
+                if (bar) {
+                    // Capture target width from inline style
+                    var targetWidth = bar.style.width || '0%';
+                    // Reset to 0 so animation plays from 0
+                    bar.style.width = '0%';
+                    // Force reflow
+                    bar.getBoundingClientRect();
+                    // Apply animation + restore target width
+                    bar.style.transition = 'width 0.9s cubic-bezier(0.4,0,0.2,1)';
+                    // Small delay before setting target so transition triggers
+                    setTimeout(function () {
+                        bar.style.width = targetWidth;
+                    }, 30);
+                }
                 item.style.animationDelay = '0s';
                 item.classList.add('skill-visible');
-            }, 120 + i * 90);
+            }, 120 + i * 100);
         });
     }
 

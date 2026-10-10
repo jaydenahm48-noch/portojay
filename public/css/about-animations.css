@@ -40,6 +40,10 @@
     80%  { opacity: 0.4; }
     100% { left: 110%; opacity: 0; }
 }
+@keyframes skillScan {
+    0%   { left: -8px; }
+    100% { left: calc(var(--bar-w, 70%) + 4px); }
+}
 @keyframes timelineDraw {
     from { height: 0; }
 }
@@ -216,9 +220,11 @@
 /* Progress bar starts at 0, fills to target */
 .about .skill-item.skill-visible .progress-in {
     animation: skillFill 0.9s cubic-bezier(0.4,0,0.2,1) both;
+    position: relative;
+    overflow: visible;
 }
 
-/* Glint sweep across bar */
+/* Glint sweep across bar — runs once after fill */
 .about .skill-item.skill-visible .progress {
     overflow: hidden;
     position: relative;
@@ -228,9 +234,24 @@
     position: absolute;
     top: 0; bottom: 0;
     width: 28px;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.45), transparent);
-    animation: skillGlint 1.2s 0.9s ease both;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.55), transparent);
+    animation: skillGlint 1.0s 1.0s ease both;
     pointer-events: none;
+}
+
+/* Repeating scan line on the fill bar */
+.about .skill-item.skill-visible .progress-in::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0;
+    width: 3px;
+    background: rgba(255,255,255,0.7);
+    animation: scanPulse 2s 1.2s ease-in-out infinite;
+    pointer-events: none;
+}
+@keyframes scanPulse {
+    0%,100% { opacity: 0; transform: scaleY(0.3); }
+    40%,60%  { opacity: 1; transform: scaleY(1); }
 }
 
 /* Hover interaction */
