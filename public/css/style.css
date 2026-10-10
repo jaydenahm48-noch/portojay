@@ -100,7 +100,6 @@ body.dark .section::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(230,235,245,0.55);
     z-index: 0;
     pointer-events: none;
 }
