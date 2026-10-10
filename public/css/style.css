@@ -657,15 +657,44 @@ h3.my-profession {
     text-transform: uppercase;
 }
 
-.portfolio .portfolio-item { flex: 0 0 33.33%; max-width: 33.33%; margin-bottom: 24px; }
+.portfolio .portfolio-item { flex: 0 0 33.33%; max-width: 33.33%; margin-bottom: 24px; display: flex; }
+.certificate-item             { flex: 0 0 33.33%; max-width: 33.33%; margin-bottom: 24px; display: flex; }
 .portfolio .portfolio-item-inner {
     background: var(--card-bg);
     border: 1px solid var(--card-border);
     overflow: hidden;
     cursor: pointer;
     position: relative;
-    transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+    /* Flex column agar tinggi card seragam */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: border-color 0.25s, box-shadow 0.25s;
     backdrop-filter: blur(6px);
+    /* Float animation */
+    animation: cardFloat var(--float-dur, 3.2s) var(--float-delay, 0s) ease-in-out infinite;
+}
+
+/* Pixel float — naik turun halus */
+@keyframes cardFloat {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-6px); }
+}
+
+/* Stagger float delay per card */
+.portfolio .portfolio-item:nth-child(1) .portfolio-item-inner { --float-dur: 3.2s; --float-delay: 0s; }
+.portfolio .portfolio-item:nth-child(2) .portfolio-item-inner { --float-dur: 3.6s; --float-delay: 0.4s; }
+.portfolio .portfolio-item:nth-child(3) .portfolio-item-inner { --float-dur: 3.0s; --float-delay: 0.8s; }
+.portfolio .portfolio-item:nth-child(4) .portfolio-item-inner { --float-dur: 3.4s; --float-delay: 0.2s; }
+.portfolio .portfolio-item:nth-child(5) .portfolio-item-inner { --float-dur: 3.8s; --float-delay: 0.6s; }
+.portfolio .portfolio-item:nth-child(6) .portfolio-item-inner { --float-dur: 3.1s; --float-delay: 1.0s; }
+
+/* Pause float on hover — replace with lift */
+.portfolio .portfolio-item-inner:hover {
+    animation-play-state: paused;
+    border-color: var(--skin-color);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 36px rgba(236,24,57,0.2);
 }
 .portfolio .portfolio-item-inner::after {
     content: '';
@@ -678,11 +707,6 @@ h3.my-profession {
     opacity: 0;
     transition: opacity 0.25s;
 }
-.portfolio .portfolio-item-inner:hover {
-    border-color: var(--skin-color);
-    transform: translateY(-4px);
-    box-shadow: 0 8px 32px rgba(236,24,57,0.15);
-}
 .portfolio .portfolio-item-inner:hover::after { opacity: 1; }
 
 .portfolio .portfolio-item-inner .portfolio-img {
@@ -690,6 +714,7 @@ h3.my-profession {
     height: 180px;
     overflow: hidden;
     background: var(--bg-black-50);
+    flex-shrink: 0;
 }
 .portfolio .portfolio-item-inner .portfolio-img img {
     width: 100%;
@@ -704,6 +729,10 @@ h3.my-profession {
 .portfolio .portfolio-item-inner .portfolio-info {
     padding: 12px 14px;
     border-top: 1px solid var(--card-border);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 .portfolio .portfolio-item-inner .portfolio-info h4 {
     font-family: 'VT323', monospace;
@@ -732,37 +761,50 @@ h3.my-profession {
     text-transform: uppercase;
 }
 
+
 .certificate-item { flex: 0 0 33.33%; max-width: 33.33%; margin-bottom: 24px; }
 .certificate-item-inner {
     background: var(--card-bg);
     border: 1px solid var(--card-border);
     overflow: hidden;
     cursor: pointer;
-    transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: border-color 0.25s, box-shadow 0.25s;
     backdrop-filter: blur(6px);
     position: relative;
+    animation: cardFloat var(--float-dur, 3.4s) var(--float-delay, 0.3s) ease-in-out infinite;
 }
+.certificate-item:nth-child(1) .certificate-item-inner { --float-dur: 3.4s; --float-delay: 0.3s; }
+.certificate-item:nth-child(2) .certificate-item-inner { --float-dur: 3.0s; --float-delay: 0.7s; }
+.certificate-item:nth-child(3) .certificate-item-inner { --float-dur: 3.6s; --float-delay: 0.1s; }
+.certificate-item:nth-child(4) .certificate-item-inner { --float-dur: 3.2s; --float-delay: 0.9s; }
 .certificate-item-inner::before {
-    content: 'ðŸ†';
+    content: '';
     position: absolute;
     top: 8px; right: 8px;
-    font-size: 14px;
+    width: 10px; height: 10px;
+    background: var(--skin-color);
+    opacity: 0.3;
+    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
     z-index: 1;
-    filter: grayscale(1) opacity(0.4);
-    transition: filter 0.25s;
+    transition: opacity 0.25s, transform 0.25s;
 }
 .certificate-item-inner:hover {
+    animation-play-state: paused;
     border-color: var(--skin-color);
-    transform: translateY(-4px);
-    box-shadow: 0 8px 32px rgba(236,24,57,0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 36px rgba(236,24,57,0.2);
 }
-.certificate-item-inner:hover::before { filter: grayscale(0) opacity(1); }
+.certificate-item-inner:hover::before { opacity: 1; transform: scale(1.3) rotate(15deg); }
 
 .certificate-img {
     width: 100%;
     height: 175px;
     overflow: hidden;
     background: var(--bg-black-50);
+    flex-shrink: 0;
 }
 .certificate-img img {
     width: 100%;
@@ -787,6 +829,10 @@ h3.my-profession {
 .certificate-info {
     padding: 12px 14px;
     border-top: 1px solid var(--card-border);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 .certificate-info h4 {
     font-family: 'VT323', monospace;
