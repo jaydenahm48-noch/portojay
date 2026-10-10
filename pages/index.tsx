@@ -62,12 +62,17 @@ export default function Home() {
                     className="nav-toggler-btn"
                     id="globalNavToggler"
                     aria-label="Buka menu navigasi"
+                    aria-expanded="false"
+                    aria-controls="sidebarAside"
                 >
                     <span></span>
                 </button>
 
+                {/* Overlay backdrop ketika mobile drawer terbuka */}
+                <div className="nav-overlay" id="navOverlay"></div>
+
                 {/* ── Aside / Sidebar ─────────────────────────────────────────────── */}
-                <div className="aside">
+                <div className="aside" id="sidebarAside">
                     <div className="logo">
                         <a
                             href="#home"
@@ -725,16 +730,35 @@ export default function Home() {
 
         // ── Global burger button (outside aside, position:fixed independent) ──
         (function() {
-          var btn = document.getElementById('globalNavToggler');
+          var btn     = document.getElementById('globalNavToggler');
+          var overlay = document.getElementById('navOverlay');
+          var aside   = document.querySelector('.aside');
+          var sections = document.querySelectorAll('.section');
           if (!btn) return;
-          btn.addEventListener('click', function() {
-            // Trigger same logic as the internal nav-toggler
-            var aside = document.querySelector('.aside');
-            var sections = document.querySelectorAll('.section');
-            aside.classList.toggle('open');
-            btn.classList.toggle('open');
-            sections.forEach(function(s) { s.classList.toggle('open'); });
-          });
+
+          function openDrawer() {
+            btn.classList.add('open');
+            btn.setAttribute('aria-expanded', 'true');
+            aside.classList.add('open');
+            overlay.classList.add('active');
+            sections.forEach(function(s){ s.classList.add('open'); });
+          }
+          function closeDrawer() {
+            btn.classList.remove('open');
+            btn.setAttribute('aria-expanded', 'false');
+            aside.classList.remove('open');
+            overlay.classList.remove('active');
+            sections.forEach(function(s){ s.classList.remove('open'); });
+          }
+          function toggleDrawer() {
+            if (aside.classList.contains('open')) closeDrawer(); else openDrawer();
+          }
+
+          btn.addEventListener('click', toggleDrawer);
+          if (overlay) overlay.addEventListener('click', closeDrawer);
+
+          // Expose closeDrawer so script.js can sync
+          window._closeNavDrawer = closeDrawer;
         })();
 
         // ── Portfolio Loader ────────────────────────────────────────────────

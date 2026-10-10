@@ -23,7 +23,7 @@ for (let i = 0; i < totalNavList; i++) {
         this.classList.add('active');
         showSection(this);
         if (window.innerWidth < 1200) {
-            asideSectionTogglerBtn();
+            closeNavDrawer();
         }
     });
 }
@@ -74,6 +74,11 @@ function asideSectionTogglerBtn() {
     for (let i = 0; i < totalSection; i++) {
         allSection[i].classList.toggle('open');
     }
+}
+
+// Close drawer via global handler (set by inline script)
+function closeNavDrawer() {
+    if (window._closeNavDrawer) window._closeNavDrawer();
 }
 
 /* ── Pixel cursor flash on nav click ───────────────────────── */
