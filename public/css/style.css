@@ -57,10 +57,11 @@ body {
 }
 body::-webkit-scrollbar { display: none; }
 
-/* â”€â”€ Pixel grid overlay on sections â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+
+/* -- Pixel grid overlay -- */
 .section::after {
     content: '';
-    position: fixed;
+    position: absolute;
     inset: 0;
     background-image:
         linear-gradient(var(--pixel-grid) 1px, transparent 1px),
@@ -70,8 +71,7 @@ body::-webkit-scrollbar { display: none; }
     z-index: 0;
 }
 
-/* â”€â”€ Section layout â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-/* Untuk Mode Biasa / Default (Gelap) */
+/* -- Section layout -- */
 .section {
     background-image: var(--bg-gradient);
     background-size: cover;
@@ -92,19 +92,22 @@ body::-webkit-scrollbar { display: none; }
     transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease;
 }
 
-/* Khusus untuk Mode Terang (body.dark), baru kita kasih gradient putih penuh ke bawah */
+/* Light mode overlay — subtle tint, konten tetap terlihat */
 body.dark .section {
-    background-image: linear-gradient(rgba(240, 244, 248, 0.75), rgba(240, 244, 248, 0.75)), var(--bg-gradient);
+    background-image: var(--bg-gradient);
 }
 body.dark .section::before {
     content: '';
     position: absolute;
     inset: 0;
+    background: rgba(230,235,245,0.55);
     z-index: 0;
     pointer-events: none;
 }
-body.dark .section .container,
-body.dark .section > * { position: relative; z-index: 1; }
+
+/* Konten selalu di atas overlay */
+.section .container,
+.section > * { position: relative; z-index: 1; }
 
 .section.back-section { z-index: 1; }
 .section.active {
