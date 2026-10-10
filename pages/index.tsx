@@ -170,7 +170,7 @@ export default function Home() {
                                                 id="about-dialog"
                                                 data-full-text="I'm a fresh graduate in Informatics from Universitas Ahmad Dahlan. Passionate about programming, web development, and creating digital solutions that bring real impact. Eager to learn, adapt, and deliver quality work — ready to grow and collaborate."
                                             >
-                                                <div className="rpg-dialog-header">PLAYER LOG</div>
+                                                <div className="rpg-dialog-header">Detail</div>
                                                 <div className="rpg-dialog-text">
                                                     <span className="rpg-typewriter"></span>
                                                     <span className="rpg-typewriter-cursor" aria-hidden="true"></span>
