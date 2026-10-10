@@ -92,16 +92,14 @@ body::-webkit-scrollbar { display: none; }
     transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease;
 }
 
-/* Light mode overlay — subtle tint, konten tetap terlihat */
+/* Khusus Mode Terang (body.dark) — Berikan gradient putih penuh agar tidak terpotong saat di-scroll */
 body.dark .section {
-    background-image: var(--bg-gradient);
+    background-image: linear-gradient(rgba(240, 244, 248, 0.75), rgba(240, 244, 248, 0.75)), var(--bg-gradient);
 }
+
+/* Hapus atau kosongkan body.dark .section::before yang lama agar tidak bentrok */
 body.dark .section::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
+    display: none;
 }
 
 /* Konten selalu di atas overlay */
