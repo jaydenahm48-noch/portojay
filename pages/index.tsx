@@ -117,7 +117,8 @@ export default function Home() {
                                         I&apos;m a <TypingText />
                                     </h3>
                                     <p>
-                                        I am a passionate fresh graduate and beginner programmer who is eager to 
+                                        I'm an Informatics student at Universitas Ahmad Dahlan and a passionate Fullstack & Mobile Developer
+                                         who is eager to 
                                         grow by working on real projects. I bring strong dedication, quick learning 
                                         skills, and a fresh perspective to every task — committed to delivering 
                                         quality work while continuously improving.
@@ -168,7 +169,7 @@ export default function Home() {
                                             <div
                                                 className="rpg-dialog"
                                                 id="about-dialog"
-                                                data-full-text="I'm a fresh graduate in Informatics from Universitas Ahmad Dahlan. Passionate about programming, web development, and creating digital solutions that bring real impact. Eager to learn, adapt, and deliver quality work — ready to grow and collaborate."
+                                                data-full-text="I'm an Informatics student at Universitas Ahmad Dahlan and a passionate fullstack & mobile developer, programming, web development, and creating digital solutions that bring real impact. Eager to learn, adapt, and deliver quality work — ready to grow and collaborate."
                                             >
                                                 <div className="rpg-dialog-header">Detail</div>
                                                 <div className="rpg-dialog-text">
@@ -217,13 +218,62 @@ export default function Home() {
                                         {/* Skills */}
                                         <div className="skills padd-15">
                                             <div className="row">
-                                                <div className="skill-item padd-15"><h5>HTML, CSS</h5><div className="progress"><div className="progress-in" style={{ width: '70%' }}></div><div className="skill-percent">70%</div></div></div>
-                                                <div className="skill-item padd-15"><h5>JS</h5><div className="progress"><div className="progress-in" style={{ width: '65%' }}></div><div className="skill-percent">65%</div></div></div>
-                                                <div className="skill-item padd-15"><h5>C++</h5><div className="progress"><div className="progress-in" style={{ width: '65%' }}></div><div className="skill-percent">65%</div></div></div>
-                                                <div className="skill-item padd-15"><h5>Laravel</h5><div className="progress"><div className="progress-in" style={{ width: '70%' }}></div><div className="skill-percent">70%</div></div></div>
-                                                <div className="skill-item padd-15"><h5>PHP</h5><div className="progress"><div className="progress-in" style={{ width: '70%' }}></div><div className="skill-percent">70%</div></div></div>
-                                                <div className="skill-item padd-15"><h5>MySQL</h5><div className="progress"><div className="progress-in" style={{ width: '70%' }}></div><div className="skill-percent">70%</div></div></div>
-                                                <div className="skill-item padd-15"><h5>API</h5><div className="progress"><div className="progress-in" style={{ width: '70%' }}></div><div className="skill-percent">70%</div></div></div>
+                                                <div className="skill-item padd-15">
+                                                    <h5>Next.js & React</h5>
+                                                    <div className="progress">
+                                                        <div className="progress-in" style={{ width: '85%' }}></div>
+                                                        <div className="skill-percent">85%</div>
+                                                    </div>
+                                                </div>
+                                                <div className="skill-item padd-15">
+                                                    <h5>TypeScript & JS</h5>
+                                                    <div className="progress">
+                                                        <div className="progress-in" style={{ width: '80%' }}></div>
+                                                        <div className="skill-percent">80%</div>
+                                                    </div>
+                                                </div>
+                                                <div className="skill-item padd-15">
+                                                    <h5>Laravel & PHP</h5>
+                                                    <div className="progress">
+                                                        <div className="progress-in" style={{ width: '80%' }}></div>
+                                                        <div className="skill-percent">80%</div>
+                                                    </div>
+                                                </div>
+                                                <div className="skill-item padd-15">
+                                                    <h5>Golang & WebAssembly</h5>
+                                                    <div className="progress">
+                                                        <div className="progress-in" style={{ width: '75%' }}></div>
+                                                        <div className="skill-percent">75%</div>
+                                                    </div>
+                                                </div>
+                                                <div className="skill-item padd-15">
+                                                    <h5>Flutter & Dart</h5>
+                                                    <div className="progress">
+                                                        <div className="progress-in" style={{ width: '75%' }}></div>
+                                                        <div className="skill-percent">75%</div>
+                                                    </div>
+                                                </div>
+                                                <div className="skill-item padd-15">
+                                                    <h5>Tailwind CSS & HTML</h5>
+                                                    <div className="progress">
+                                                        <div className="progress-in" style={{ width: '85%' }}></div>
+                                                        <div className="skill-percent">85%</div>
+                                                    </div>
+                                                </div>
+                                                <div className="skill-item padd-15">
+                                                    <h5>Supabase, PostgreSQL & MySQL</h5>
+                                                    <div className="progress">
+                                                        <div className="progress-in" style={{ width: '80%' }}></div>
+                                                        <div className="skill-percent">80%</div>
+                                                    </div>
+                                                </div>
+                                                <div className="skill-item padd-15">
+                                                    <h5>REST API & Midtrans</h5>
+                                                    <div className="progress">
+                                                        <div className="progress-in" style={{ width: '80%' }}></div>
+                                                        <div className="skill-percent">80%</div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
