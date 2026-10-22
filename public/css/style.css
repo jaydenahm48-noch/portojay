@@ -593,10 +593,18 @@ h3.my-profession {
     padding: 28px 18px;
     text-align: center;
     backdrop-filter: blur(8px);
-    transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+    transition: border-color 0.25s, box-shadow 0.25s;
     position: relative;
     overflow: hidden;
+    /* Float animation — staggered per card */
+    animation: cardFloat var(--float-dur, 3.3s) var(--float-delay, 0s) ease-in-out infinite;
 }
+.service .service-item:nth-child(1) .service-item-inner { --float-dur: 3.3s; --float-delay: 0s; }
+.service .service-item:nth-child(2) .service-item-inner { --float-dur: 3.7s; --float-delay: 0.5s; }
+.service .service-item:nth-child(3) .service-item-inner { --float-dur: 3.1s; --float-delay: 1.0s; }
+.service .service-item:nth-child(4) .service-item-inner { --float-dur: 3.5s; --float-delay: 0.3s; }
+.service .service-item:nth-child(5) .service-item-inner { --float-dur: 3.9s; --float-delay: 0.7s; }
+.service .service-item:nth-child(6) .service-item-inner { --float-dur: 3.2s; --float-delay: 1.2s; }
 /* Pixel corner accent */
 .service .service-item .service-item-inner::before {
     content: '';
@@ -610,9 +618,10 @@ h3.my-profession {
     transition: opacity 0.25s;
 }
 .service .service-item .service-item-inner:hover {
+    animation-play-state: paused;
     border-color: var(--skin-color);
-    transform: translateY(-4px);
-    box-shadow: 0 8px 32px rgba(236,24,57,0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 36px rgba(236,24,57,0.2);
 }
 .service .service-item .service-item-inner:hover::before { opacity: 1; }
 
