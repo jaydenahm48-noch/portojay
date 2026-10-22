@@ -268,6 +268,14 @@ body.dark .section::before {
 .aside .logo a::before,
 .aside .logo a::after { display: none; }
 
+.aside .logo a img {
+    filter: invert(1);
+    transition: filter 0.3s ease;
+}
+body.dark .aside .logo a img {
+    filter: invert(0);
+}
+
 /* --- Nav items ----------------------------------------------- */
 .aside .nav {
     width: 100%;
