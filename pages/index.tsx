@@ -189,8 +189,8 @@ export default function Home() {
                                                     <table style={{ width: '100%', borderCollapse: 'collapse', tableLayout: 'fixed' }}>
                                                         <tbody>
                                                             <tr className="about-info-row"><td style={{ width: '90px', fontWeight: 'bold', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>Birthday</td><td style={{ width: '15px', textAlign: 'center', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>:</td><td style={{ padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-700)' }}>19 NOV 2005</td></tr>
-                                                            <tr className="about-info-row"><td style={{ fontWeight: 'bold', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>Instagram</td><td style={{ textAlign: 'center', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>:</td><td style={{ padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-700)' }}>@jayden.noch</td></tr>
-                                                            <tr className="about-info-row"><td style={{ fontWeight: 'bold', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>Website</td><td style={{ textAlign: 'center', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>:</td><td style={{ padding: '6px 0', verticalAlign: 'top', wordBreak: 'break-all', color: 'var(--text-black-700)' }}>portojay.vercel.app</td></tr>
+                                                            <tr className="about-info-row"><td style={{ fontWeight: 'bold', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>Instagram</td><td style={{ textAlign: 'center', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>:</td><td style={{ padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-700)' }}><a href="https://instagram.com/jayden.noch" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>@jayden.noch</a></td></tr>
+                                                            <tr className="about-info-row"><td style={{ fontWeight: 'bold', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>Website</td><td style={{ textAlign: 'center', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>:</td><td style={{ padding: '6px 0', verticalAlign: 'top', wordBreak: 'break-all', color: 'var(--text-black-700)' }}><a href="https://portojay.vercel.app" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>portojay.vercel.app</a></td></tr>
                                                             <tr className="about-info-row"><td style={{ fontWeight: 'bold', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>Phone</td><td style={{ textAlign: 'center', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>:</td><td style={{ padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-700)' }}>+62 813 751 3615</td></tr>
                                                             <tr className="about-info-row"><td style={{ fontWeight: 'bold', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>Country</td><td style={{ textAlign: 'center', padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-900)' }}>:</td><td style={{ padding: '6px 0', verticalAlign: 'top', color: 'var(--text-black-700)' }}>Indonesia</td></tr>
                                                         </tbody>
@@ -432,12 +432,16 @@ export default function Home() {
                                 <div className="contact-info-item padd-15">
                                     <div className="icon"><i className="fa fa-envelope"></i></div>
                                     <h4>Gmail</h4>
-                                    <p>jydnahm@gmail.com</p>
+                                    <p>zaidanahmad005@gmail.com</p>
                                 </div>
                                 <div className="contact-info-item padd-15">
                                     <div className="icon"><i className="fa fa-globe-asia"></i></div>
                                     <h4>Website</h4>
-                                    <p>portojay.vercel.app</p>
+                                    <p>
+                                        <a href="https://portojay.vercel.app" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
+                                            portojay.vercel.app
+                                        </a>
+                                    </p>
                                 </div>
                             </div>
                             <h3 className="contact-title padd-15">SEND ME AN EMAIL ?</h3>
